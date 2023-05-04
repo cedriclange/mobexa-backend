@@ -1,4 +1,15 @@
-version: "3"
+version: '3.8'
 services:
-  api:
-  kafka:
+  db:
+    image: postgres
+    restart: always
+    read_only: true
+    environment:
+      POSTGRES_USER: johndoe
+      POSTGRES_PASSWORD: mob123
+      POSTGRES_DB: mobexa
+    ports:
+      - 5432:5432
+    volumes:
+      - ./var/lib/postgresql/data
+
